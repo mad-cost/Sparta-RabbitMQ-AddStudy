@@ -47,8 +47,8 @@ public class OrderEndpoint {
   public static class OrderRequestDto {
     private String userId;
     private Integer productId;
-    private Integer productQuantity;
-    private Integer payAmount;
+    private Integer productQuantity; // 상품 수량
+    private Integer payAmount; // 상품 가격
 
     // Order 객체 생성
     public Order toOrder (){
