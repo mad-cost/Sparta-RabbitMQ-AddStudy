@@ -20,4 +20,12 @@ public class ProductEndpoint {
     log.info("PRODUCT RECEIVE:{}", deliveryMessage.toString());
   }
 
+  // market.err.product 큐에서 넘어온 메시지 처리
+  @RabbitListener(queues="${message.queue.err.product}")
+  public void receiveErrorMessage(DeliveryMessage deliveryMessage) {
+    log.info("ERROR RECEIVE !!!");
+    productService.rollbackProduct(deliveryMessage);
+  }
+
 }
+
