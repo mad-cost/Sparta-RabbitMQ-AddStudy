@@ -37,6 +37,7 @@ public class OrderEndpoint {
     return ResponseEntity.ok(order);
   }
 
+  // market.err.order 큐에서 넘어오는 에러 메시지 처리
   @RabbitListener(queues = "${message.queue.err.order}")
   public void errOrder(DeliveryMessage message) {
     log.info("ERROR RECEIVE !!!");
